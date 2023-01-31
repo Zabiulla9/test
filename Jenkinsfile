@@ -3,7 +3,7 @@ pipeline {
     parameters {
         string(name: 'Names', defaultValue: 'Lokesh')
         choice(name: 'Fruits', choices: ['Apple', 'Mango', 'Grapes'])
-               }
+    }
     stages {
         stage('Build') { 
             steps { 

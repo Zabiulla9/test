@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Package install') {
             steps {
-                sh 'sudo apt-get update && sudo apt install $Packages'
+                sh 'sudo apt-get update && sudo apt install $Packages -y'
             }
         }
         stage('Copy indexfile') {

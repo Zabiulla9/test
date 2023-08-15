@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    parameters {
+       choice(name: "Packages", choices['nginx', 'tree', 'apache2'], descripton: "Choose package to install")
+    }
+    stages {
+        stage('Checkout repo') {
+            steps {
+                git credentialsId: 'c8cf0121-85be-4e2c-960f-13521660df59', url: 'https://github.com/Zabiulla9/test.git'
+            }
+        }
+        stage('Package install') {
+            steps {
+                sh 'sudo apt-get update && sudo apt install $Packages'
+            }
+        }
+        stage('Copy indexfile') {
+            steps {
+                sh ' cp ./index.html /var/www/html/index.html'
+            }
+        }
+    }
+}

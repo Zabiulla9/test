@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-       choices(name: "Packages", choices['nginx', 'tree', 'apache2'], descripton: "Choose package to install")
+       choice(name: "Packages", choices: ['nginx', 'tree', 'apache2'], descripton: "Choose package to install")
     }
     stages {
         stage('Checkout repo') {
